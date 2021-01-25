@@ -1,0 +1,632 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Rezervuokite laiką ir vietą konsultacijai 1 kabinete:
+{% endblock %}
+
+{% block main %}
+
+    <form action="/rezervacija1_next" method="post">
+        <body onload="myFunction()">
+        <table style="width:150%;">
+                <tr>
+                    <td style="font-size:20px; text-align:center; color: green; width:50%;">{{now_year}}</td>
+
+            </table>
+        <table style="width:150%;">
+                <tr>
+                    <td style="font-size:10px;text-align:left;width:1%;"><a href="/rezervacija1"><b><<</b></a></td>
+                    <td style="font-size:20px; text-align:center; color: green; width:50%;">{{next_month}} mėnuo</td>
+            </table><br>
+        <table id="thetable" style="font-size:10px; text-align:left; width:150%;">
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;" name="date_kab1_next">1</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_1 in kab1_next_rows_1 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_1" value={{kab1_next_row_1["time"]}} >   {{kab1_next_row_1["time"]}}</td>
+                    <td>{{kab1_next_row_1["booked"]}}</td>
+                    <td >{{kab1_next_row_1["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_1" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">2</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_2 in kab1_next_rows_2 %}
+                   <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_2" value={{kab1_next_row_2["time"]}}>{{kab1_next_row_2["time"]}}</td>
+                    <td>{{kab1_next_row_2["booked"]}}</td>
+                    <td>{{kab1_next_row_2["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_2" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">3</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_3 in kab1_next_rows_3 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_3" value={{kab1_next_row_3["time"]}}>{{kab1_next_row_3["time"]}}</td>
+                    <td>{{kab1_next_row_3["booked"]}}</td>
+                    <td>{{kab1_next_row_3["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_3" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">4</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_4 in kab1_next_rows_4 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_4" value={{kab1_next_row_4["time"]}}>{{kab1_next_row_4["time"]}}</td>
+                    <td>{{kab1_next_row_4["booked"]}}</td>
+                    <td>{{kab1_next_row_4["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_4" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">5</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_5 in kab1_next_rows_5 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_5" value={{kab1_next_row_5["time"]}}>{{kab1_next_row_5["time"]}}</td>
+                    <td>{{kab1_next_row_5["booked"]}}</td>
+                    <td>{{kab1_next_row_5["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_5" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">6</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_6 in kab1_next_rows_6 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_6" value={{kab1_next_row_6["time"]}}>{{kab1_next_row_6["time"]}}</td>
+                    <td>{{kab1_next_row_6["booked"]}}</td>
+                    <td>{{kab1_next_row_6["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_6" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">7</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_7 in kab1_next_rows_7 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_7" value={{kab1_next_row_7["time"]}}>{{kab1_next_row_7["time"]}}</td>
+                    <td>{{kab1_next_row_7["booked"]}}</td>
+                    <td>{{kab1_next_row_7["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_7" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">8</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_8 in kab1_next_rows_8 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_8" value={{kab1_next_row_8["time"]}}>{{kab1_next_row_8["time"]}}</td>
+                    <td>{{kab1_next_row_8["booked"]}}</td>
+                    <td>{{kab1_next_row_8["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_8" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">9</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_9 in kab1_next_rows_9 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_9" value={{kab1_next_row_9["time"]}}>{{kab1_next_row_9["time"]}}</td>
+                    <td>{{kab1_next_row_9["booked"]}}</td>
+                    <td>{{kab1_next_row_9["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_9" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">10</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_10 in kab1_next_rows_10 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_10" value={{kab1_next_row_10["time"]}}>{{kab1_next_row_10["time"]}}</td>
+                    <td>{{kab1_next_row_10["booked"]}}</td>
+                    <td>{{kab1_next_row_10["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_10" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">11</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_11 in kab1_next_rows_11 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_11" value={{kab1_next_row_11["time"]}}>{{kab1_next_row_11["time"]}}</td>
+                    <td>{{kab1_next_row_11["booked"]}}</td>
+                    <td>{{kab1_next_row_11["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_11" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">12</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_12 in kab1_next_rows_12 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_12" value={{kab1_next_row_12["time"]}}>{{kab1_next_row_12["time"]}}</td>
+                    <td>{{kab1_next_row_12["booked"]}}</td>
+                    <td>{{kab1_next_row_12["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_12" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">13</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_13 in kab1_next_rows_13 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_13" value={{kab1_next_row_13["time"]}}>{{kab1_next_row_13["time"]}}</td>
+                    <td>{{kab1_next_row_13["booked"]}}</td>
+                    <td>{{kab1_next_row_13["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_13" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">14</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_14 in kab1_next_rows_14 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_14" value={{kab1_next_row_14["time"]}}>{{kab1_next_row_14["time"]}}</td>
+                    <td>{{kab1_next_row_14["booked"]}}</td>
+                    <td>{{kab1_next_row_14["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_14" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">15</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_15 in kab1_next_rows_15 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_15" value={{kab1_next_row_15["time"]}}>{{kab1_next_row_15["time"]}}</td>
+                    <td>{{kab1_next_row_15["booked"]}}</td>
+                    <td>{{kab1_next_row_15["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_15" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">16</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                 <tr>
+                    {% for kab1_next_row_16 in kab1_next_rows_16 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_16" value={{kab1_next_row_16["time"]}}>{{kab1_next_row_16["time"]}}</td>
+                    <td>{{kab1_next_row_16["booked"]}}</td>
+                    <td>{{kab1_next_row_16["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_16" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">17</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                 <tr>
+                    {% for kab1_next_row_17 in kab1_next_rows_17 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_17" value={{kab1_next_row_17["time"]}}>{{kab1_next_row_17["time"]}}</td>
+                    <td>{{kab1_next_row_17["booked"]}}</td>
+                    <td>{{kab1_next_row_17["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_17" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">18</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_18 in kab1_next_rows_18 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_18" value={{kab1_next_row_18["time"]}}>{{kab1_next_row_18["time"]}}</td>
+                    <td>{{kab1_next_row_18["booked"]}}</td>
+                    <td>{{kab1_next_row_18["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_18" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">19</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_19 in kab1_next_rows_19 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_19" value={{kab1_next_row_19["time"]}}>{{kab1_next_row_19["time"]}}</td>
+                    <td>{{kab1_next_row_19["booked"]}}</td>
+                    <td>{{kab1_next_row_19["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_19" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">20</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_20 in kab1_next_rows_20 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_20" value={{kab1_next_row_20["time"]}}>{{kab1_next_row_20["time"]}}</td>
+                    <td>{{kab1_next_row_20["booked"]}}</td>
+                    <td>{{kab1_next_row_20["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_20" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">21</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_21 in kab1_next_rows_21 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_21" value={{kab1_next_row_21["time"]}}>{{kab1_next_row_21["time"]}}</td>
+                    <td>{{kab1_next_row_21["booked"]}}</td>
+                    <td>{{kab1_next_row_21["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_21" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">22</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_22 in kab1_next_rows_22 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_22" value={{kab1_next_row_22["time"]}}>{{kab1_next_row_22["time"]}}</td>
+                    <td>{{kab1_next_row_22["booked"]}}</td>
+                    <td>{{kab1_next_row_22["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_22" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">23</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_23 in kab1_next_rows_23 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_23" value={{kab1_next_row_23["time"]}}>{{kab1_next_row_23["time"]}}</td>
+                    <td>{{kab1_next_row_23["booked"]}}</td>
+                    <td>{{kab1_next_row_23["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_23" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">24</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_24 in kab1_next_rows_24 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_24" value={{kab1_next_row_24["time"]}}>{{kab1_next_row_24["time"]}}</td>
+                    <td>{{kab1_next_row_24["booked"]}}</td>
+                    <td>{{kab1_next_row_24["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_24" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">25</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_25 in kab1_next_rows_25 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_25" value={{kab1_next_row_25["time"]}}>{{kab1_next_row_25["time"]}}</td>
+                    <td>{{kab1_next_row_25["booked"]}}</td>
+                    <td>{{kab1_next_row_25["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_25" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">26</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_26 in kab1_next_rows_26 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_26" value={{kab1_next_row_26["time"]}}>{{kab1_next_row_26["time"]}}</td>
+                    <td>{{kab1_next_row_26["booked"]}}</td>
+                    <td>{{kab1_next_row_26["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_26" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">27</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_27 in kab1_next_rows_27 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_27" value={{kab1_next_row_27["time"]}}>{{kab1_next_row_27["time"]}}</td>
+                    <td>{{kab1_next_row_27["booked"]}}</td>
+                    <td>{{kab1_next_row_27["client"]}}</td>
+                    </tr>
+                {% endfor %}
+                <td></td>
+                    <td>
+                    <input class="w3-input" name="client_27" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">28</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_28 in kab1_next_rows_28 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_28" value={{kab1_next_row_28["time"]}}>{{kab1_next_row_28["time"]}}</td>
+                    <td>{{kab1_next_row_28["booked"]}}</td>
+                    <td>{{kab1_next_row_28["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_28" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">29</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_29 in kab1_next_rows_29 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_29" value={{kab1_next_row_29["time"]}}>{{kab1_next_row_29["time"]}}</td>
+                    <td>{{kab1_next_row_29["booked"]}}</td>
+                    <td>{{kab1_next_row_29["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_29" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">30</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_30 in kab1_next_rows_30 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_30" value={{kab1_next_row_30["time"]}}>{{kab1_next_row_30["time"]}}</td>
+                    <td>{{kab1_next_row_30["booked"]}}</td>
+                    <td>{{kab1_next_row_30["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_30" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+                <tr>
+                    <th style="font-size:20px; background-color:LightGray;">31</th>
+                    <td colspan="4" style="text-align:center; background-color:LightGray;">1 kabinetas</td>
+                </tr>
+                <tr>
+                    {% for kab1_next_row_31 in kab1_next_rows_31 %}
+                    <td></td>
+                    <td>
+                    <input class="w3-radio" type="checkbox" name="time_kab1_next_31" value={{kab1_next_row_31["time"]}}>{{kab1_next_row_31["time"]}}</td>
+                    <td>{{kab1_next_row_31["booked"]}}</td>
+                    <td>{{kab1_next_row_31["client"]}}</td>
+                    </tr>
+                    {% endfor %}
+                    <td></td>
+                    <td>
+                    <input class="w3-input" name="client_31" placeholder="Konsultanto vardas (kliento vardas)" type="text">
+                    </td>
+                    <td><button class="w3-btn w3-grey w3-round">Rezervuoti</button></td>
+                </tr>
+            </table><br>
+
+                <script>
+        function myFunction() {
+            var table = document.getElementById("thetable");
+            for (var r = 0, n = table.rows.length; r < n; r++) {
+                for (var c = 0, m = table.rows[r].cells.length; c < m; c++) {
+                    if (table.rows[r].cells[c].innerHTML == "Rezervuota")
+                    table.rows[r].cells[c].style.backgroundColor = "#ff3300";
+                    if (table.rows[r].cells[c].innerHTML == "Laisva")
+                    table.rows[r].cells[c].style.backgroundColor = "#00b300";
+                }
+            }
+        }
+    </script>
+
+    </form>
+
+</body>
+{% endblock %}

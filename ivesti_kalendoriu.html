@@ -1,0 +1,192 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Įveskite datas ir laikus konsultacijų rezervacijos kalendoriui:
+{% endblock %}
+
+{% block main %}
+
+    <form action="/ivesti_kalendoriu" method="post">
+       <p>Pasirinkite metus (galimas vienas pasirinkimas):</p>
+        <table style="font-size:10px">
+                <tr>
+                    <td>2020</td>
+                    <td><input type="checkbox" id="year" name="year" value="2020"></td></tr>
+                <tr>
+                    <td>2021</td>
+                    <td><input type="checkbox" id="year" name="year" value="2021"></td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td><input type="checkbox" id="year" name="year" value="2022"></td>
+                </tr>
+            </table>
+
+        <p>Pasirinkite mėnesį (galimas vienas pasirinkimas):</p>
+         <table style="font-size:10px">
+                <tr style="text-align:left">
+                    <td>Sausis</td>
+                    <td><input type="checkbox" id="sausis" name="month" value="1"></td>
+                    <td></td>
+                    <td>Balandis</td>
+                    <td><input type="checkbox" id="balandis" name="month" value="4"></td>
+                    <td></td>
+                    <td>Liepa</td>
+                    <td><input type="checkbox" id="liepa" name="month" value="7"></td>
+                    <td></td>
+                    <td>Spalis</td>
+                    <td><input type="checkbox" id="spalis" name="month" value="10"></td>
+                </tr>
+                <tr>
+                    <td>Vasaris</td>
+                    <td><input type="checkbox" id="vasaris" name="month" value="2"></td>
+                    <td></td>
+                    <td>Gegužė</td>
+                    <td><input type="checkbox" id="geguze" name="month" value="5"></td>
+                    <td></td>
+                    <td>Rugpjūtis</td>
+                    <td><input type="checkbox" id="rugpjutis" name="month" value="8"></td>
+                    <td></td>
+                    <td >Lapkritis</td>
+                    <td><input type="checkbox" id="lapkritis" name="month" value="11"></td>
+                </tr>
+                <tr>
+                    <td>Kovas</td>
+                    <td><input type="checkbox" id="kovas" name="month" value="3"></td>
+                    <td style="width:20%"></td>
+                    <td >Birželis</td>
+                    <td><input type="checkbox" id="birzelis" name="month" value="6"></td>
+                    <td style="width:20%"></td>
+                    <td >Rugsėjis</td>
+                    <td><input type="checkbox" id="rugsejis" name="month" value="9"></td>
+                    <td style="width:20%"></td>
+                    <td >Gruodis</td>
+                    <td><input type="checkbox" id="gruodis" name="month" value="12"></td>
+                </tr>
+            </table>
+        <p>Pasirinkite kabinetą (galimas vienas variantas):</p>
+        <table style="font-size:10px">
+                <tr>
+                    <td>1 kabinetas</td>
+                    <td><input type="checkbox" id="1kab" name="kab" value="1"></td></tr>
+                <tr>
+                    <td>2 kabinetas</td>
+                    <td><input type="checkbox" id="2kab" name="kab" value="2"></td>
+                </tr>
+                <tr>
+                    <td>3 kabinetas</td>
+                    <td><input type="checkbox" id="3kab" name="kab" value="3"></td>
+                </tr>
+            </table>
+     <p>Pasirinkite mėnesio dieną / dienas:</p>
+         <table style="width:100%">
+              <tr style="text-align:right">
+                    <td>1</td>
+                    <td><input type="checkbox" id="1" name="1" value="1"></td>
+                    <td>2</td>
+                    <td><input type="checkbox" id="2" name="2" value="2"></td>
+                    <td>3</td>
+                    <td><input type="checkbox" id="3" name="3" value="3"></td>
+                    <td>4</td>
+                    <td><input type="checkbox" id="4" name="4" value="4"></td>
+                    <td>5</td>
+                    <td><input type="checkbox" id="5" name="5" value="5"></td>
+                    <td>6</td>
+                    <td><input type="checkbox" id="6" name="6" value="6"></td>
+                    <td>7</td>
+                    <td><input type="checkbox" id="7" name="7" value="7"></td>
+                    <td>8</td>
+                    <td><input type="checkbox" id="8" name="8" value="8"></td>
+                    <td>9</td>
+                    <td><input type="checkbox" id="9" name="9" value="9"></td>
+                    <td>10</td>
+                    <td><input type="checkbox" id="10" name="10" value="10"></td>
+                </tr>
+                <tr style="text-align:right">
+                    <td>11</td>
+                    <td><input type="checkbox" id="11" name="11" value="11"></td>
+                    <td>12</td>
+                    <td><input type="checkbox" id="12" name="12" value="12"></td>
+                    <td>13</td>
+                    <td><input type="checkbox" id="13" name="13" value="13"></td>
+                    <td>14</td>
+                    <td><input type="checkbox" id="14" name="14" value="14"></td>
+                    <td>15</td>
+                    <td><input type="checkbox" id="15" name="15" value="15"></td>
+                    <td>16</td>
+                    <td><input type="checkbox" id="16" name="16" value="16"></td>
+                    <td>17</td>
+                    <td><input type="checkbox" id="17" name="17" value="17"></td>
+                    <td>18</td>
+                    <td><input type="checkbox" id="18" name="18" value="18"></td>
+                    <td>19</td>
+                    <td><input type="checkbox" id="19" name="19" value="19"></td>
+                    <td>20</td>
+                    <td><input type="checkbox" id="20" name="20" value="20"></td>
+                </tr>
+                <tr style="text-align:right">
+                    <td>21</td>
+                    <td><input type="checkbox" id="21" name="21" value="21"></td>
+                    <td>22</td>
+                    <td><input type="checkbox" id="22" name="22" value="22"></td>
+                    <td>23</td>
+                    <td><input type="checkbox" id="23" name="23" value="23"></td>
+                    <td>24</td>
+                    <td><input type="checkbox" id="24" name="24" value="24"></td>
+                    <td>25</td>
+                    <td><input type="checkbox" id="25" name="25" value="25"></td>
+                    <td>26</td>
+                    <td><input type="checkbox" id="26" name="26" value="26"></td>
+                    <td>27</td>
+                    <td><input type="checkbox" id="27" name="27" value="27"></td>
+                    <td>28</td>
+                    <td><input type="checkbox" id="28" name="28" value="28"></td>
+                    <td>29</td>
+                    <td><input type="checkbox" id="29" name="29" value="29"></td>
+                    <td>30</td>
+                    <td><input type="checkbox" id="30" name="30" value="30"></td>
+                </tr>
+                <tr style="text-align:right">
+                    <td>31</td>
+                    <td><input type="checkbox" id="31" name="31" value="31"></td>
+                </tr>
+            </table><br>
+            <p>Pasirinkite konsultacijų valandas:</p>
+            <table style="font-size:10px">
+                <tr style="text-align:left" >
+                    <td >09:00 - 10:00</td>
+                    <td><input type="checkbox" id="9val" name="9val" value="09:00 - 10:00"></td>
+                    <td></td>
+                    <td >12:00 - 13:00</td>
+                    <td><input type="checkbox" id="12val" name="12val" value="12:00 - 13:00"></td>
+                    <td></td>
+                    <td >15:00 - 16:00</td>
+                    <td><input type="checkbox" id="15val" name="15val" value="15:00 - 14:00"></td>
+                </tr>
+                <tr style="text-align:right">
+                    <td>10:00 - 11:00</td>
+                    <td><input type="checkbox" id="10val" name="10val" value="10:00 - 11:00"></td>
+                    <td></td>
+                    <td >13:00 - 14:00</td>
+                    <td><input type="checkbox" id="13val" name="13val" value="13:00 - 14:00"></td>
+                    <td></td>
+                    <td >16:00 - 17:00</td>
+                    <td><input type="checkbox" id="16val" name="16val" value="16:00 - 17:00"></td>
+                </tr>
+                <tr style="text-align:right">
+                    <td>11:00 - 12:00</td>
+                    <td><input type="checkbox" id="11val" name="11val" value="11:00 - 12:00"></td>
+                    <td style="width:20%"></td>
+                    <td >14:00 - 15:00</td>
+                    <td><input type="checkbox" id="14val" name="14val" value="14:00 - 15:00"></td>
+                    <td style="width:20%"></td>
+                    <td >17:00 - 18:00</td>
+                    <td><input type="checkbox" id="17val" name="17val" value="17:00 - 18:00"></td>
+                </tr>
+            </table>
+        <br>
+        <p style="font-size:10px">Kantrybės paspaudus įvedimo mygtuką.</p>
+    <button class="w3-btn w3-dark-grey w3-round">Įvesti</button>
+        </div>
+    </form>
+{% endblock %}

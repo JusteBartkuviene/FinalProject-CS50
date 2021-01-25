@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Konsultacijos registravimas (po konsultacijos):
+{% endblock %}
+
+{% block main %}
+
+    <form action="/po_konsultacijos" method="post">
+    <style>
+        body
+        {
+            font-size:14px
+        }
+    </style>
+        <div class="form-group">
+            <input class="w3-input" name="client_name" placeholder="Kliento vardas" type="text" required>
+        </div>
+        <div class="form-group">
+            <input class="w3-input" name="client_surname" placeholder="Kliento pavardė (nebūtina)" type="text">
+        </div>
+        <p style="color: DarkOliveGreen;">Konsultacijos data:</p>
+         <div class="form-group">
+            <input class="w3-input" name="consultation_date" placeholder="Konsultacijos data" type="date" required>
+        </div>
+        <p style="color: DarkOliveGreen;">Konsultacijos pradžia:</p>
+         <div class="form-group">
+            <input class="w3-input" name="consultation_time" placeholder="Konsultacijos laikas" type="time" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <input class="w3-input" style="color: DarkOliveGreen;" value="Konsultacijos trukmė (pasirinkti):" type="text" readonly>
+        </div>
+        <input class="w3-radio"  style="font-size:14px" type="radio" name="consultation_duration" value="1" checked>
+            <label>1 valanda</label><br>
+        <input class="w3-radio"  style="font-size:14px" type="radio" name="consultation_duration" value="2">
+            <label>2 valandos</label><br>
+            <br>
+        <div class="form-group">
+            <input class="w3-input" style="color: DarkOliveGreen;" value="Konsultacijos tipas (pasirinkti):" type="text" readonly>
+        </div>
+        <input class="w3-radio" type="radio" name="consultation_type" value="individuali" checked>
+            <label>Individuali konsultacija</label><br>
+        <input class="w3-radio" type="radio" name="consultation_type" value="seimos">
+            <label>Šeimos konsultacija</label><br>
+        <input class="w3-radio" type="radio" name="consultation_type" value="grupes">
+            <label>Grupės konsultacija</label><br>
+            <br>
+        <div class="form-group">
+            <input class="w3-input" style="color: DarkOliveGreen;" value="Konsultacijos kaina (pasirinkti):" type="text" readonly>
+        </div>
+        <input class="w3-radio" type="radio" name="consultation_price" value="iprasta" checked>
+            <label>Įprastinė kaina</label><br>
+        <input class="w3-radio" type="radio" name="consultation_price" value="VU_darb">
+            <label>VU darbuotojams</label><br>
+        <input class="w3-radio" type="radio" name="consultation_price" value="VU_stud">
+            <label>VU studentams</label><br>
+        <div class="form-group">
+            <br>
+            <input class="w3-input" style="color: DarkOliveGreen; width:200%" name="comments" placeholder="Pastabos" type="text" maxlength="200">
+        </div>
+        <br><br><button class="w3-btn w3-dark-grey w3-round">Pateikti</button>
+        </div>
+    </form>
+{% endblock %}

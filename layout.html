@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>KMC</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+      <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-metro.css">
+      <style>
+        body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+        body {font-size:16px;}
+        .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+        .w3-half img:hover{opacity:1}
+      </style>
+
+<body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-metro-light-green w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h4 class="w3-padding-1"><a href="/" style="text-decoration:none;"><b>Konsultavimo ir <br> mokymų centras</a></b></h3>
+  </div>
+  {% if session.user_id %}
+  <div class="w3-bar-block">
+    <h5 class="w3-padding-1" style="color: DarkOliveGreen;">Rezervacija:</h5>
+    <a href="/rezervacija1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-small">1 kabinetas</a>
+    <a href="/rezervacija2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-small">2 kabinetas</a>
+    <a href="/rezervacija3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-small">3 kabinetas</a>
+    <h5 class="w3-padding-1" style="color: DarkOliveGreen;">Po konsultacijos:</h5>
+    <a href="/po_konsultacijos" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-small">Aprašyti konsultaciją</a>
+    <h5 class="w3-padding-1" style="color: DarkOliveGreen;">Mano suvestinės:</h5>
+    <a href="/mano_rezervacijos" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-small">Rezervacijos</a>
+    <a href="/neaprasytos_konsultacijos" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-small">Neaprašytos konsultacijos</a>
+    <a href="/istorija" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-small">Istorija</a>
+    {% if session.user_type == "ADM" %}
+    <h5 class="w3-padding-1" style="color: DarkOliveGreen;">Bendros suvestinės:</h5>
+    <a href="/visos_rezervacijos" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-small">Rezervacijos</a>
+    <a href="/visos_neaprasytos_konsultacijos" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-small">Neaprašytos konsultacijos</a>
+    <a href="/visa_istorija" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-small">Istorija</a>
+    <a href="/vartotojai" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-small">Vartotojai</a>
+    {% endif %}
+    <h5 class="w3-padding-1" style="color: DarkOliveGreen;">Nustatymai:</h5>
+    {% if session.user_type == "ADM" %}
+    <a href="/ivesti_kalendoriu" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-small">Įvesti kalendorių</a>
+    <a href="/registruoti" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-small">Registruoti vartotoją</a>
+    {% endif %}
+    <a href="/mano" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-small">Mano profilis</a>
+    <a href="/keisti_slaptazodi" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-small">Keisti slaptažodį</a>
+    <a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-small">Atsijungti</a>
+  </div>
+  {% endif %}
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Konsultavimo ir mokymų centras</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+    <h1 class="w3-xlarge w3-text-light-green"><b>{% block title %}{% endblock %}</b></h1>
+    <hr style="width:50px;border:5px solid light green" class="w3-round">
+  </div>
+  <div class="w3-row-padding">
+    <div class="w3-half w3-margin-bottom">
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="w3-panel w3-green w3-round w3-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
+
+        {% block main %}{% endblock %}
+
+  <!-- Contact -->
+  {% if not session.user_id %}
+  <div class="w3-container" id="contact" style="margin-top:75px">
+    <h1 class="w3-medium w3-text-red"><b><br><br>Svetainė skirta tik registruotiems vartotojams<br><br><br></b></h1>
+  </div>
+
+<!-- End page content -->
+</div>
+
+<div class="w3-light-grey w3-container w3-padding-8" style="margin-top:75px;padding-right:58px"><p class="w3-medium w3-centre w3-text-grey">
+  Vilniaus universiteto Filosofijos fakulteto Konsultavimo ir mokymų centras<br>116 kab., Universiteto g. 9/1, Vilnius, tel. (8 5) 268 72 54, el. p. kmc@ff.vu.lt</p></div>
+{% endif %}
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
+</body>
+</html>

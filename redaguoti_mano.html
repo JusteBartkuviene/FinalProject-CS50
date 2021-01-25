@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Atnaujinkite savo duomenis:
+{% endblock %}
+
+{% block main %}
+
+    <form action="/redaguoti_mano" method="post">
+         <div class="form-group">
+            <input class="w3-input" name="name" placeholder="Vardas" type="text" required>
+        </div>
+         <div class="form-group">
+            <input class="w3-input" name="surname" placeholder="Pavardė" type="text" required>
+        </div>
+         <div class="form-group">
+            <input class="w3-input" name="phone" placeholder="Telefonas" type="text" required>
+        </div>
+         <div class="form-group">
+            <input class="w3-input" name="email" placeholder="El. paštas" type="email" required>
+        </div>
+        <br><br>
+        <button class="w3-btn w3-dark-grey w3-round">Išsaugoti</button>
+        </div>
+    </form>
+{% endblock %}

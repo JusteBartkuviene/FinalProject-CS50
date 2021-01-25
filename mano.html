@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Mano profilis
+{% endblock %}
+
+{% block main %}
+    <table class="w3-table-all w3-card-4">
+        <tr>
+            <td class="w3-medium w3-text-grey">Vardas</td><td></td><td><b>{{name}}</b></td>
+        </tr>
+        <tr>
+            <td class="w3-medium w3-text-grey">Pavardė</td><td></td><td><b>{{surname}}</b></td>
+        </tr>
+        <tr>
+            <td class="w3-medium w3-text-grey">Telefonas</td><td></td><td><b>{{phone}}</b></td>
+        </tr>
+        <tr>
+            <td class="w3-medium w3-text-grey">El.paštas </td><td></td><td><b>{{email}}</b></td>
+        </tr>
+    </table>
+    <br><br>
+    <a href="/redaguoti_mano" class="w3-btn w3-grey">Redaguoti</a>
+</div>
+
+</form>
+{% endblock %}

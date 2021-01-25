@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Rezervacijos patvirtinimas
+{% endblock %}
+
+{% block main %}
+    <div>
+       <p>Data: {{now_year}}  {{now_month}} {{next_month}} {{booked_day}}</p>
+       <p>Laikas: {{booked_time}} </p>
+       <p>Konsultantas(klientas): {{booked_client}}</p>
+
+    </div>
+{% endblock %}

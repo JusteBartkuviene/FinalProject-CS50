@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Pasikeiskite slaptažodį:
+{% endblock %}
+
+{% block main %}
+
+    <form action="/keisti_slaptazodi" method="post">
+        <div class="form-group">
+            <input class="w3-input" name="password" placeholder="Dabartinis slaptažodis" type="password">
+        </div>
+        <div class="form-group">
+            <input class="w3-input" name="password_new" placeholder="Naujas slaptažodis" type="password">
+        </div>
+        <div class="form-group">
+            <input class="w3-input" name="password_new_again" placeholder="Naujas slaptažodis (pakartoti)" type="password">
+        </div>
+         <div class="form-group">
+        <br><br><button class="w3-btn w3-dark-grey w3-round">Keisti</button>
+        </div>
+    </form>
+{% endblock %}

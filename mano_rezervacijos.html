@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Mano rezervacijos:
+{% endblock %}
+
+{% block main %}
+
+    <form action="/mano_rezervacijos" method="post">
+        <style>
+            table
+            {
+            width: 200%;
+            border-collapse:collapse;
+            font-size:12px
+            }
+
+            tr
+            {
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            }
+        </style>
+        <table>
+                <tr>
+                    <td style="font-size:15px; text-align:left; color: green; width:50%;">Konsultantas - {{name}} {{surname}}</td>
+                </tr>
+        </table>
+        <br>
+        <br>
+        <table>
+                <tr>
+                    <td style="font-size:15px; text-align: centre; color: green; width:50%;">{{now_month}} mėn.</td>
+                </tr>
+            </table>
+            <br>
+        <table style="text-align:left;">
+                <tr>
+                    <th></th>
+                    <th>Metai</th>
+                    <th>Mėnuo</th>
+                    <th>Diena</th>
+                    <th>Laikas</th>
+                    <th>Kabinetas</th>
+                    <th>Konsultantas(klientas)</th>
+                    <th>Trinti</th>
+                </tr>
+                {% for row in rows %}
+                <tr>
+                    <td><input class="w3-radio" type="checkbox" name="booking_id" value={{row["id"]}}></td>
+                    <td id="year" name="year" value={{row["year"]}}>{{row["year"]}}</td>
+                    <td name="month", value={{row["month"]}}>{{row["month"]}}</td>
+                    <td name="day", value={{row["day"]}}>{{row["day"]}}</td>
+                    <td name="time", value={{row["time"]}}>{{row["time"]}}</td>
+                    <td name="cabinet", value={{row["cabinet"]}}>{{row["cabinet"]}}</td>
+                    <td name="client", value={{row["client"]}}>{{row["client"]}}</td>
+                    <td><button class="w3-btn w3-grey w3-round" type="submit" name="trinti">Trinti</button></td>
+                </tr>
+                {% endfor %}
+        </table>
+                <br><br>
+        <table>
+                <tr>
+                    <td style="font-size:15px; text-align: centre; color: green; width:50%;">{{next_month}} mėn.</td>
+                </tr>
+            </table>
+        <br>
+
+        <table style="text-align:left;">
+                <tr>
+                    <th></th>
+                    <th>Metai</th>
+                    <th>Mėnuo</th>
+                    <th>Diena</th>
+                    <th>Laikas</th>
+                    <th>Kabinetas</th>
+                    <th>Konsultantas(klientas)</th>
+                    <th>Trinti</th>
+                </tr>
+                {% for next_row in next_rows %}
+                <tr>
+                    <td><input class="w3-radio" type="checkbox" name="booking_id" value={{next_row["id"]}}></td>
+                    <td id="year" name="year" value={{next_row["year"]}}>{{next_row["year"]}}</td>
+                    <td name="month", value={{next_row["month"]}}>{{next_row["month"]}}</td>
+                    <td name="day", value={{next_row["day"]}}>{{next_row["day"]}}</td>
+                    <td name="time", value={{next_row["time"]}}>{{next_row["time"]}}</td>
+                    <td name="cabinet", value={{next_row["cabinet"]}}>{{next_row["cabinet"]}}</td>
+                    <td name="client", value={{next_row["client"]}}>{{next_row["client"]}}</td>
+                    <td><button class="w3-btn w3-grey w3-round" type="submit" name="trinti">Trinti</button></td>
+                </tr>
+                {% endfor %}
+    </form>
+
+</body>
+{% endblock %}

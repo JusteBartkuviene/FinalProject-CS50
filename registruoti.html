@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Registruoti naują vartotoją
+{% endblock %}
+
+{% block main %}
+
+    <form action="/registruoti" method="post">
+        <div class="form-group">
+            <input class="w3-input" name="username" placeholder="Prisijungimo vardas" type="text" required>
+        </div>
+        <div class="form-group">
+            <input class="w3-input" name="password" placeholder="Slaptažodis" type="password" required>
+        </div>
+        <div class="form-group">
+            <input class="w3-input" name="password_again" placeholder="Slaptažodis (pakartoti)" type="password" required>
+        </div>
+         <div class="form-group">
+            <input class="w3-input" name="name" placeholder="Vardas" type="text" required>
+        </div>
+         <div class="form-group">
+            <input class="w3-input" name="surname" placeholder="Pavardė" type="text" required>
+        </div>
+         <div class="form-group">
+            <input class="w3-input" name="phone" placeholder="Telefonas" type="text" required>
+        </div>
+         <div class="form-group">
+            <input class="w3-input" name="email" placeholder="El. paštas" type="email" required>
+        </div>
+        <input class="w3-radio" type="radio" name="tipas" value="KON" checked>
+            <label>Konsultantas</label>
+        <input class="w3-radio" type="radio" name="tipas" value="ADM">
+            <label>Administratorius</label>
+        <br><br><button class="w3-btn w3-dark-grey w3-round">Registruoti</button>
+        </div>
+    </form>
+{% endblock %}

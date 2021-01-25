@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Visos neaprašytos konsultacijos:
+{% endblock %}
+
+{% block main %}
+
+    <form action="/visos_neaprasytos_konsultacijos" method="post">
+        <style>
+            table
+            {
+            width: 200%;
+            border-collapse:collapse;
+            font-size:12px
+            }
+
+            tr
+            {
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            }
+        </style>
+        <table style="text-align:left;">
+                <tr>
+                    <th></th>
+                    <th>Metai</th>
+                    <th>Mėnuo</th>
+                    <th>Diena</th>
+                    <th>Laikas</th>
+                    <th>Kabinetas</th>
+                    <th>Konsultantas(klientas)</th>
+                    <th>Rezervavusio asmens kodas</th>
+                </tr>
+                {% for row in rows %}
+                <tr>
+                    <td></td>
+                    <td>{{row["year"]}}</td>
+                    <td>{{row["month"]}}</td>
+                    <td>{{row["day"]}}</td>
+                    <td>{{row["time"]}}</td>
+                    <td>{{row["cabinet"]}}</td>
+                    <td>{{row["client"]}}</td>
+                    <td>{{row["user_id"]}}</td>
+                </tr>
+                {% endfor %}
+    </form>
+
+</body>
+{% endblock %}

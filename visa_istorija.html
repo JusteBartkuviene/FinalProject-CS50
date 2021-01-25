@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Visų aprašytų konsultacijų istorija:
+{% endblock %}
+
+{% block main %}
+
+    <form action="/visa_istorija" method="post">
+                <style>
+            table
+            {
+            width: 200%;
+            border-collapse:collapse;
+            font-size:12px
+            }
+
+            tr
+            {
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            }
+        </style>
+        <table style="text-align:left;">
+                <tr >
+                    <th>Kon. kodas</th>
+                    <th>Data</th>
+                    <th>Laikas</th>
+                    <th>Trukmė</th>
+                    <th>Kliento vardas (pavardė)</th>
+                    <th>Konsultacijos tipas</th>
+                    <th>Konsultantas kaina</th>
+                    <th>Pastabos</th>
+                </tr>
+                {% for row in rows %}
+                <tr>
+                    <td>{{row["user_id"]}}</td>
+                    <td>{{row["consultation_date"]}}</td>
+                    <td>{{row["consultation_time"]}}</td>
+                    <td>{{row["consultation_duration"]}}</td>
+                    <td>{{row["client_name"]}} {{row["client_surname"]}}</td>
+                    <td>{{row["consultation_type"]}}</td>
+                    <td>{{row["consultation_price"]}}</td>
+                    <td>{{row["comments"]}}</td>
+                </tr>
+                {% endfor %}
+    </form>
+
+</body>
+{% endblock %}
